@@ -1,5 +1,12 @@
 language: java
 sudo: false
+addons:
+  sonarcloud:
+    organization: "freakey17-github"
+    token: $SONAR_TOKEN10
+
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 jdk:
     - openjdk8
     - openjdk11
